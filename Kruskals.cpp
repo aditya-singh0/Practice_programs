@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <tuple>
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -37,9 +35,8 @@ bool comp(const tuple<int,int,int>& a, const tuple<int,int,int>& b)
 {
     int first = get<2>(a);
     int second = get<2>(b);
-    if (first < second)
-        return true;
-    return false;
+    return (first < second);
+        
 }
 
 vector<tuple<int,int,int>> kruskal(vector<vector<pair<int,int>>>& graph,
@@ -53,10 +50,8 @@ vector<tuple<int,int,int>> kruskal(vector<vector<pair<int,int>>>& graph,
 
     sort(allEdges.begin(), allEdges.end(), comp);
     
-    for (tuple<int,int,int> t : allEdges) {
-        int u = get<0>(t);
-        int v = get<1>(t);
-        int weight = get<2>(t);
+    for (auto& [u,v,weight] : allEdges) {
+      
         if (find(parent,u) != find(parent,v))
         {
             result.emplace_back(make_tuple(u,v, weight));
@@ -96,7 +91,7 @@ int main()
     addEdge(graph, allEdges, 3, 6, 5);
     addEdge(graph, allEdges, 4, 6, 7);
 
-    vector<tuple<int,int,int>> res = kruskal(graph, allEdges);
+   auto res = kruskal(graph, allEdges);
     cout << "Minimum Spanning Tree: " << endl;
     for (tuple<int,int,int> t : res)
         cout << get<0>(t) << "-" << get<1>(t) << "," << get<2>(t) << endl;
