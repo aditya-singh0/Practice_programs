@@ -93,7 +93,7 @@ int main()
 
    auto res = kruskal(graph, allEdges);
     cout << "Minimum Spanning Tree: " << endl;
-    for (tuple<int,int,int> t : res)
-        cout << get<0>(t) << "-" << get<1>(t) << "," << get<2>(t) << endl;
+    for (auto&[x,y,z]  : res)
+        cout <<x << "-" << y << "," << z << endl;
     return 0;
 }
