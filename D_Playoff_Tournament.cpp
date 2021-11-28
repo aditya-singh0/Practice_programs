@@ -32,9 +32,7 @@ int lcm(int a, int b);
 bool po2 (int x);
 struct comp;
 
-int modi(int a, int b) {
-   return  (((a % b) + b) % b);
-}
+
 void solve() {
     int k;
 	cin >> k;
